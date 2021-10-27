@@ -62,10 +62,9 @@ class PorfolioTest extends Simulation {
  //todo
 
   /*** Scenario Design ***/
-  val scn = scenario("Video Game DB")
-    .forever() {
-      exec()
-    }
+  val scn = scenario("Porfolio Scenario")
+    exec()
+    
 
   /*** Setup Load Simulation ***/
   setUp(
