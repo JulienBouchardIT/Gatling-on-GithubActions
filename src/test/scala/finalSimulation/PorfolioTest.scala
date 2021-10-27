@@ -62,9 +62,9 @@ class PorfolioTest extends Simulation {
  //todo
 
   /*** Scenario Design ***/
-  val scn = scenario("Porfolio Scenario")
-    exec()
-    
+  val scn = scenario("Porfolio Scenario"){
+      exec()
+    }
 
   /*** Setup Load Simulation ***/
   setUp(
