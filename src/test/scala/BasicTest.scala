@@ -62,9 +62,9 @@ class BasicTest extends Simulation {
  //todo
   def aHttpCall() = {
     exec(
-      http("Get All Video Games")
-        .get("thisPageDoesNotExist")
-        .check(status.is(404)))
+      http("Main page")
+        .get("")
+        .check(status.is(200)))
   }
 
   /*** Scenario Design ***/
