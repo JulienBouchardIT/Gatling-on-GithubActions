@@ -20,7 +20,52 @@ class VideoGameFullTest extends Simulation {
   def rampDuration: Int = getProperty("RAMP_DURATION", "10").toInt
   def testDuration: Int = getProperty("DURATION", "60").toInt
 
+  // other variables
+  var idNumbers = (20 to 1000).iterator
+  val rnd = new Random()
+  val now = LocalDate.now()
+  val pattern = DateTimeFormatter.ofPattern("yyyy-MM-dd")
 
+  /*** Helper Methods ***/
+  private def getProperty(propertyName: String, defaultValue: String) = {
+    Option(System.getenv(propertyName))
+      .orElse(Option(System.getProperty(propertyName)))
+      .getOrElse(defaultValue)
+  }
+
+  def randomString(length: Int) = {
+    rnd.alphanumeric.filter(_.isLetter).take(length).mkString
+  }
+
+  def getRandomDate(startDate: LocalDate, random: Random): String = {
+    startDate.minusDays(random.nextInt(30)).format(pattern)
+  }
+
+  /*** Custom Feeder ***/
+  val customFeeder = Iterator.continually(Map(
+    "gameId" -> idNumbers.next(),
+    "name" -> ("Game-" + randomString(5)),
+    "releaseDate" -> getRandomDate(now, rnd),
+    "reviewScore" -> rnd.nextInt(100),
+    "category" -> ("Category-" + randomString(6)),
+    "rating" -> ("Rating-" + randomString(4))
+  ))
+
+  /*** Before ***/
+  before {
+    println(s"Running test with ${userCount} users")
+    println(s"Ramping users over ${rampDuration} seconds")
+    println(s"Total Test duration: ${testDuration} seconds")
+  }
+
+  /*** HTTP Calls ***/
+ //todo
+
+  /*** Scenario Design ***/
+  val scn = scenario("Video Game DB")
+    .forever() {
+      exec()
+    }
 
   /*** Setup Load Simulation ***/
   setUp(
