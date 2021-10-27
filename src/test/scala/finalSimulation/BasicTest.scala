@@ -8,7 +8,7 @@ import java.time.format.DateTimeFormatter
 import scala.concurrent.duration._
 import scala.util.Random
 
-class PorfolioTest extends Simulation {
+class BasicTest extends Simulation {
 
   val httpConf = http
     .baseUrl("http://perdu.com")
@@ -68,7 +68,7 @@ class PorfolioTest extends Simulation {
   }
 
   /*** Scenario Design ***/
-  val scn = scenario("Porfolio").exec(aHttpCall())
+  val scn = scenario("Basic").exec(aHttpCall())
 
   /*** Setup Load Simulation ***/
   setUp(

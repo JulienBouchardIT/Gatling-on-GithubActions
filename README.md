@@ -1,6 +1,8 @@
-Gatling 3 Fundamentals
+Gatling with Github Actions
 =========================
+[![Latest test](https://github.com/JulienBouchardIT/gatling3-fundamentals/actions/workflows/main.yml/badge.svg)](https://github.com/JulienBouchardIT/gatling3-fundamentals/actions/workflows/main.yml)
 
-Course code for the Gatling Fundamentals Udemy course - updated for Gatling v3
+The only usable simulation for github action is 
 
-https://www.udemy.com/gatling-fundamentals
+For original version on Jenkin:
+https://github.com/james-willett/gatling3-fundamentals
