@@ -60,9 +60,12 @@ class PorfolioTest extends Simulation {
 
   /*** HTTP Calls ***/
  //todo
+  def aHttpCall() = {
+    println(s"Hello world! =D")
+  }
 
   /*** Scenario Design ***/
-  val scn = scenario("Porfolio Scenario").exec()
+  val scn = scenario("Porfolio Scenario").exec(aHttpCall())
 
   /*** Setup Load Simulation ***/
   setUp(
