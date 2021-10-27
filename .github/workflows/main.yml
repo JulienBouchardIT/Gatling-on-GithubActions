@@ -18,4 +18,5 @@ jobs:
       - name: Save results
         uses: actions/upload-artifact@v2
         with:
-          path: pom.xml
+          name: result
+          path: /home/runner/work/Gatling-on-GithubActions/Gatling-on-GithubActions/target/gatling/basictest-*/index.html
