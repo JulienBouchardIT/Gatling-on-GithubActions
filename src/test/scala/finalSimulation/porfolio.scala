@@ -8,7 +8,7 @@ import java.time.format.DateTimeFormatter
 import scala.concurrent.duration._
 import scala.util.Random
 
-class VideoGameFullTest extends Simulation {
+class PorfolioTest extends Simulation {
 
   val httpConf = http
     .baseUrl("http://perdu.com")
