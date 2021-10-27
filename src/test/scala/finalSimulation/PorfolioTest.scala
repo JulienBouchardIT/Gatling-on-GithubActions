@@ -65,7 +65,13 @@ class PorfolioTest extends Simulation {
   }
 
   /*** Scenario Design ***/
-  val scn = scenario("Porfolio Scenario").exec(aHttpCall())
+  val scn = scenario("Porfolio Scenario").exec { session =>
+  // displays the content of the session in the console (debugging only)
+  println(session)
+
+  // return the original session
+  session
+}
 
   /*** Setup Load Simulation ***/
   setUp(
