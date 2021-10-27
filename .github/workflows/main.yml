@@ -10,6 +10,18 @@ on:
         description: 'Simulation'     
         required: true
         default: 'BasicTest'
+      userCount:
+        description: 'Number of users'     
+        required: true
+        default: '100'
+      rampDuration:
+        description: 'Time for ramping #users (sec)'     
+        required: true
+        default: '10'
+      testDuration:
+        description: 'Test duration (sec)'     
+        required: true
+        default: '60'
 
 jobs:
   go:
@@ -20,6 +32,9 @@ jobs:
         run: |
           echo "Ticket: ${{ github.event.inputs.ticket }}" 
           echo "Simulation: ${{ github.event.inputs.simulation }}"
+          echo "   Number of users: ${{ github.event.inputs.userCount }}"
+          echo "   Time for ramping users: ${{ github.event.inputs.rampDuration }}"
+          echo "   Test duration: ${{ github.event.inputs.testDuration }}"
 
       - uses: actions/checkout@v2
       - name: Set up JDK 11
