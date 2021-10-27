@@ -14,4 +14,4 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Build with Maven
-        run: mvn gatling:test -Dgatling.simulationClass=simulations.BasicTest
+        run: mvn gatling:test -Dgatling.simulationClass=simulation.BasicTest
