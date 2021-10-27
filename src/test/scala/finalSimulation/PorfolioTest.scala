@@ -61,7 +61,10 @@ class PorfolioTest extends Simulation {
   /*** HTTP Calls ***/
  //todo
   def aHttpCall() = {
-    println(s"Hello world! =D")
+    exec(
+      http("Get All Video Games")
+        .get("thisPageDoesNotExist")
+        .check(status.is(404)))
   }
 
   /*** Scenario Design ***/
