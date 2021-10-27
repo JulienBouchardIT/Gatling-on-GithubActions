@@ -52,7 +52,7 @@
             </goals>
             <configuration>
               <jvmArgs>
-                <jvmArg>-Xss100M</jvmArg>
+                <jvmArg>-Xss500M</jvmArg>
               </jvmArgs>
               <args>
                 <arg>-target:jvm-1.8</arg>
