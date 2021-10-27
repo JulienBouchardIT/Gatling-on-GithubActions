@@ -19,4 +19,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: result
-          path: /home/runner/work/Gatling-on-GithubActions/Gatling-on-GithubActions/target/gatling/basictest-*/index.html
+          path: /home/runner/work/Gatling-on-GithubActions/Gatling-on-GithubActions/target/gatling/basictest-*
