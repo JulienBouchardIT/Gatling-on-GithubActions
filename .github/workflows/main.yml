@@ -16,7 +16,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: |
+      - name: == ABOUT ==
+        run: |
           echo "Ticket: ${{ github.event.inputs.ticket }}" 
           echo "Simulation: ${{ github.event.inputs.simulation }}"
 
@@ -27,9 +28,9 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Build with Maven
-        run: mvn gatling:test -Dgatling.simulationClass=simulation.BasicTest
+        run: mvn gatling:test -Dgatling.simulationClass=simulation.${{ github.event.inputs.simulation }}
       - name: Save results
         uses: actions/upload-artifact@v2
         with:
           name: result
-          path: /home/runner/work/Gatling-on-GithubActions/Gatling-on-GithubActions/target/gatling/basictest-*
+          path: /home/runner/work/Gatling-on-GithubActions/Gatling-on-GithubActions/target/gatling/*
