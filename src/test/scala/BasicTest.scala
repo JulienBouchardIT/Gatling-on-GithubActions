@@ -25,20 +25,17 @@ class BasicTest extends Simulation {
     println(s"Running test with ${userCount} users")
     println(s"Ramping users over ${rampDuration} seconds")
     println(s"Total Test duration: ${testDuration} seconds")
-    def TOKEN: String = exec(http("Main page")
-      .get("")
-      .check(jsonPath("$..[*].token").findAll.saveAs("TOKEN"))
-    ).toString
-    println(TOKEN)
   }
 
   /*** HTTP Calls ***/
  //todo
   def aHttpCall() = {
     exec(
-      http("Main page")
-        .get("")
-        .check(status.is(200))
+      .exec(http("Get element from json")
+      .get("")
+      .check(jsonPath("$session.token").is("123"))
+      .check(bodyString.saveAs("responseBody")))
+        .exec { session => println(session("responseBody").as[String]); session}
     )
   }
 
