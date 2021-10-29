@@ -11,7 +11,7 @@ import scala.util.Random
 class BasicTest extends Simulation {
 
   val httpConf = http
-    .baseUrl("http://perdu.com")
+    .baseUrl("https://raw.githubusercontent.com/JulienBouchardIT/Gatling-on-GithubActions/master/src/test/scala/responseExample.json")
     .header("Accept", "application/json")
 
   /*** Variables ***/
@@ -62,9 +62,10 @@ class BasicTest extends Simulation {
  //todo
   def aHttpCall() = {
     exec(
-      http("Main page")
+      printIn(http("Main page")
         .get("")
-        .check(status.is(200)))
+        .check(status.is(200)).toString)
+    )
   }
 
   /*** Scenario Design ***/
