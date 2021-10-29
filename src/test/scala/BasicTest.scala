@@ -7,6 +7,7 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import scala.concurrent.duration._
 import scala.util.Random
+import scalaj.http.{Http, HttpOptions}
 
 class BasicTest extends Simulation {
 
