@@ -25,11 +25,10 @@ class BasicTest extends Simulation {
     println(s"Running test with ${userCount} users")
     println(s"Ramping users over ${rampDuration} seconds")
     println(s"Total Test duration: ${testDuration} seconds")
-    def TOKEN: String = exec(
-      http("Main page")
+    def TOKEN: String = exec(http("Main page")
       .get("")
       .check(jsonPath("$..[*].token").findAll.saveAs("TOKEN"))
-    )
+    ).toString
     println(TOKEN)
   }
 
