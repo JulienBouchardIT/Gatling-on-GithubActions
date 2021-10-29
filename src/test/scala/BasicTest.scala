@@ -62,7 +62,7 @@ class BasicTest extends Simulation {
  //todo
   def aHttpCall() = {
     exec(
-      printIn(http("Main page")
+      println(http("Main page")
         .get("")
         .check(status.is(200)).toString)
     )
