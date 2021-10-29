@@ -16,9 +16,9 @@ class BasicTest extends Simulation {
 
   /*** Variables ***/
   // runtime variables
-  def userCount: Int = getProperty("USERS", "1").toInt
-  def rampDuration: Int = getProperty("RAMP_DURATION", "10").toInt
-  def testDuration: Int = getProperty("DURATION", "60").toInt
+  def userCount: Int = 1
+  def rampDuration: Int = 10
+  def testDuration: Int = 60
 
   /*** Before ***/
   before {
