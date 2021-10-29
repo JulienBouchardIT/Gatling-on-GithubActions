@@ -7,7 +7,6 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import scala.concurrent.duration._
 import scala.util.Random
-import scalaj.http.{Http, HttpOptions}
 
 class BasicTest extends Simulation {
 
@@ -26,9 +25,12 @@ class BasicTest extends Simulation {
     println(s"Running test with ${userCount} users")
     println(s"Ramping users over ${rampDuration} seconds")
     println(s"Total Test duration: ${testDuration} seconds")
-    println(Http("Main page")
+    def TOKEN: string = exec(
+      http("Main page")
       .get("")
-      .check(status.is(200)).toString)
+      .check(jsonPath("$..[*].token").findAll.saveAs("TOKEN"))
+    )
+    println(TOKEN)
   }
 
   /*** HTTP Calls ***/
