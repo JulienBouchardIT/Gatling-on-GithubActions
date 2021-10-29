@@ -36,7 +36,7 @@ class BasicTest extends Simulation {
     exec(
       http("Main page")
         .get("")
-        .check(status.is(200)))
+        .check(status.is(200))
     )
   }
 
