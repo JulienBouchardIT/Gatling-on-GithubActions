@@ -25,9 +25,9 @@ class BasicTest extends Simulation {
     println(s"Running test with ${userCount} users")
     println(s"Ramping users over ${rampDuration} seconds")
     println(s"Total Test duration: ${testDuration} seconds")
-    println(http("Main page")
+    println(exec(http("Main page")
       .get("")
-      .check(status.is(200)).toString)
+      .check(status.is(200))).toString)
   }
 
   /*** HTTP Calls ***/
