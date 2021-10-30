@@ -31,12 +31,11 @@ class BasicTest extends Simulation {
  //todo
   def aHttpCall() = {
     exec(
-      .exec(http("Get element from json")
+      http("Get element from json")
       .get("")
       .check(jsonPath("$session.token").is("123"))
-      .check(bodyString.saveAs("responseBody")))
-        .exec { session => println(session("responseBody").as[String]); session}
-    )
+      .check(bodyString.saveAs("responseBody"))
+      ).exec { session => println(session("responseBody").as[String]); session}
   }
 
   /*** Scenario Design ***/
