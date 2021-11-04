@@ -25,6 +25,7 @@ class BasicTest extends Simulation {
     println(s"Running test with ${userCount} users")
     println(s"Ramping users over ${rampDuration} seconds")
     println(s"Total Test duration: ${testDuration} seconds")
+    println(aHttpCall())
   }
 
   /*** HTTP Calls ***/
