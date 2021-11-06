@@ -24,7 +24,7 @@ jobs:
         run: mvn gatling:test
       
       # Exporting .jar as a artifact
-      - run: mkdir staging && cp -r /home/runner/work/Gatling-on-GithubActions/Gatling-on-GithubActions staging
+      - run: mkdir staging && cp target/gatling* staging
       - uses: actions/upload-artifact@v2
         with:
           name: Package
