@@ -1,4 +1,4 @@
-name: Launch a simulation
+name: (CT) Launch a simulation
 
 on: 
   workflow_dispatch:
