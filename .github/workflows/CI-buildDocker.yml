@@ -30,10 +30,10 @@ jobs:
           distribution: 'adopt'
       - name: Build with Maven
         run: mvn gatling:test
-
-
-  - run: mkdir staging && cp target/*.jar staging
-  - uses: actions/upload-artifact@v2
-    with:
-      name: Package
-      path: staging
+      
+      # Exporting .jar as a artifact
+      - run: mkdir staging && cp target/*.jar staging
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Package
+          path: staging
