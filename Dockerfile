@@ -11,10 +11,10 @@ RUN mvn gatling:test -f /home/app/pom.xml clean package
 #
 FROM openjdk:11-jre-slim
 
-ENV simulation
-ENV userCount
-ENV rampDuration
-ENV testDuration
+ENV simulation basicTest
+ENV userCount 1
+ENV rampDuration 1
+ENV testDuration 1
 
 COPY --from=build /home/app/target/gatling*.jar /usr/local/lib/gatling.jar
 EXPOSE 8080
