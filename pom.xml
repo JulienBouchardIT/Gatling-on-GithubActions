@@ -15,9 +15,15 @@
     <gatling-maven-plugin.version>3.1.1</gatling-maven-plugin.version>
     <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
     <scala-maven-plugin.version>4.4.0</scala-maven-plugin.version>
+    <scala.version>2.13</scala.version>
   </properties>
 
-  <dependencies> 
+  <dependencies>
+    <dependency>
+      <groupId>org.scalaj</groupId>
+      <artifactId>scalaj-http_${scala.version}</artifactId>
+      <version>2.4.2</version>
+    </dependency>  
     <dependency>
       <groupId>io.gatling.highcharts</groupId>
       <artifactId>gatling-charts-highcharts</artifactId>
