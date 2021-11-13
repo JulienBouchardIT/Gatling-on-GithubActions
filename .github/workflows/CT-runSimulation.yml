@@ -5,7 +5,7 @@ on:
     inputs:
       ticket:
         description: 'Ticket #'
-        required: true
+        required: false
       simulation:
         description: 'Simulation'     
         required: true
