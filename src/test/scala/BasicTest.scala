@@ -9,6 +9,7 @@ import scala.concurrent.duration._
 import scala.util.Random
 
 import scalaj.http._
+import ujson._
 
 class BasicTest extends Simulation {
 
@@ -35,10 +36,8 @@ class BasicTest extends Simulation {
   /*** Like example on how to manage sessions and minimize the load on a your 
   authentication service. Use this fonction if you dont want to load test auth. ***/
   def getSession() = {
-    val response: HttpResponse[Map[String,String]] = Http(authURL).execute(parser = {inputStream =>
-      Json.parse[Map[String,String]](inputStream)
-    })
-    response("session")
+    val json = ujson.read(Http(authURL).asString.body))
+    json.("session")
   }
 
   /*** HTTP Calls ***/
