@@ -12,7 +12,6 @@ import scala.util.parsing.json.JSON
 import scala.collection.immutable.Map
 
 import scalaj.http._
-import ujson._
 
 class BasicTest extends Simulation {
 

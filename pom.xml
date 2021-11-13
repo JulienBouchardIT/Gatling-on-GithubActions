@@ -39,11 +39,6 @@
       <artifactId>gatling-recorder</artifactId>
       <version>${gatling.version}</version>
     </dependency>
-    <dependency>
-        <groupId>com.lihaoyi</groupId>
-        <artifactId>ujson_3</artifactId>
-        <version>1.4.2</version>
-    </dependency>
   </dependencies>
 
   <build>
