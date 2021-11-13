@@ -39,6 +39,11 @@
       <artifactId>gatling-recorder</artifactId>
       <version>${gatling.version}</version>
     </dependency>
+    <dependency>
+      <groupId>com.lihaoyi</groupId>
+      <artifactId>ujson-circe_2.11</artifactId>
+      <version>0.7.1</version>
+    </dependency>
   </dependencies>
 
   <build>
