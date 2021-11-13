@@ -36,7 +36,7 @@ class BasicTest extends Simulation {
     println(s"Total Test duration: ${testDuration} seconds")
     println(getSession())
 
-    println(DateTime.now(DateTimeZone.UTC).getMillis())
+
   }
 
   /*** Like example on how to manage sessions and minimize the load on a your 
