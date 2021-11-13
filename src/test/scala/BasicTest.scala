@@ -32,7 +32,8 @@ class BasicTest extends Simulation {
 
 
   def getSession() = {
-    HttpResponse[String] = Http("https://raw.githubusercontent.com/JulienBouchardIT/Gatling-on-GithubActions/master/src/test/scala/responseExample.json").param("q","monkeys").asString
+    val response: HttpResponse[String] = Http("https://raw.githubusercontent.com/JulienBouchardIT/Gatling-on-GithubActions/master/src/test/scala/responseExample.json").param("q","monkeys").asString
+    reponse.body
   }
 
   /*** HTTP Calls ***/
