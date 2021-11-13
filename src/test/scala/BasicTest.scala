@@ -6,7 +6,7 @@ import io.gatling.http.Predef._
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import scala.concurrent.duration._
-import scala.util.Random
+import scala.util._
 
 import scala.util.parsing.json.JSON
 import scala.collection.immutable.Map
@@ -33,7 +33,7 @@ class BasicTest extends Simulation {
     println(s"Ramping users over ${rampDuration} seconds")
     println(s"Total Test duration: ${testDuration} seconds")
     println(getSession())
-    
+
     println(DateTime.now(DateTimeZone.UTC).getMillis())
   }
 
