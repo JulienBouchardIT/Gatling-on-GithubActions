@@ -25,6 +25,8 @@ class BasicTest extends Simulation {
   def rampDuration: Int = 10
   def testDuration: Int = 60
 
+  def aToken: String = ""
+
   def authURL: String = "https://raw.githubusercontent.com/JulienBouchardIT/Gatling-on-GithubActions/master/src/test/scala/responseExample.json"
 
   /*** Before ***/
@@ -40,20 +42,27 @@ class BasicTest extends Simulation {
   /*** Like example on how to manage sessions and minimize the load on a your 
   authentication service. Use this fonction if you dont want to load test auth. ***/
   def getSession() = {
-
-    var aToken: String = ""
-
+    
     if(aToken == ""){
-      val jsonString = Http(authURL).asString.body
-      val jsonMap = JSON.parseFull(jsonString).getOrElse(0).asInstanceOf[Map[String,String]]
-      val innerMap = jsonMap("session").asInstanceOf[Map[String,String]]
-
-      aToken = innerMap("token")
-
+      aToken = getSession()
     }
-
     aToken
   }
+
+  def getSession() = {
+    val jsonString = Http(authURL).asString.body
+    val jsonMap = JSON.parseFull(jsonString).getOrElse(0).asInstanceOf[Map[String,String]]
+    val innerMap = jsonMap("session").asInstanceOf[Map[String,String]]
+    innerMap("token")
+  }
+
+  val t = new java.util.Timer()
+  val task = new java.util.TimerTask {
+    def run() = {aToken = getSession()}
+  }
+  t.schedule(task, 300000L, 300000L)
+  task.cancel()
+
 
   /*** HTTP Calls ***/
  // todo
