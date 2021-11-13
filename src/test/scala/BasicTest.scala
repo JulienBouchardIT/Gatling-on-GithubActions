@@ -33,6 +33,8 @@ class BasicTest extends Simulation {
     println(s"Ramping users over ${rampDuration} seconds")
     println(s"Total Test duration: ${testDuration} seconds")
     println(getSession())
+    
+    println(DateTime.now(DateTimeZone.UTC).getMillis())
   }
 
   /*** Like example on how to manage sessions and minimize the load on a your 
@@ -40,12 +42,14 @@ class BasicTest extends Simulation {
   def getSession() = {
 
     var aToken: String = ""
+
     if(aToken == ""){
       val jsonString = Http(authURL).asString.body
       val jsonMap = JSON.parseFull(jsonString).getOrElse(0).asInstanceOf[Map[String,String]]
       val innerMap = jsonMap("session").asInstanceOf[Map[String,String]]
 
       aToken = innerMap("token")
+
     }
 
     aToken
