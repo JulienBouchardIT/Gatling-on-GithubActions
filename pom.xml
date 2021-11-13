@@ -40,9 +40,9 @@
       <version>${gatling.version}</version>
     </dependency>
     <dependency>
-      <groupId>com.lihaoyi</groupId>
-      <artifactId>ujson-circe_2.11</artifactId>
-      <version>0.7.1</version>
+        <groupId>com.lihaoyi</groupId>
+        <artifactId>ujson_3</artifactId>
+        <version>1.4.2</version>
     </dependency>
   </dependencies>
 
