@@ -8,6 +8,9 @@ import java.time.format.DateTimeFormatter
 import scala.concurrent.duration._
 import scala.util.Random
 
+import scala.util.parsing.json.JSON
+import scala.collection.immutable.Map
+
 import scalaj.http._
 import ujson._
 
@@ -37,8 +40,10 @@ class BasicTest extends Simulation {
   authentication service. Use this fonction if you dont want to load test auth. ***/
   def getSession() = {
     val jsonString = Http(authURL).asString.body
-    val data = ujson.read(jsonString)
-    data.str
+
+    val jsonMap = JSON.parseFull(jsonString).getOrElse(0).asInstanceOf[Map[String,String]]
+    val innerMap = jsonMap("result").asInstanceOf[Map[String,String]]
+    innerMap("session") //will give value for any key anykey
   }
 
   /*** HTTP Calls ***/
