@@ -22,6 +22,8 @@ class BasicTest extends Simulation {
   def rampDuration: Int = 10
   def testDuration: Int = 60
 
+  def authURL: String = "https://raw.githubusercontent.com/JulienBouchardIT/Gatling-on-GithubActions/master/src/test/scala/responseExample.json"
+
   /*** Before ***/
   before {
     println(s"Running test with ${userCount} users")
@@ -30,10 +32,12 @@ class BasicTest extends Simulation {
     println(getSession())
   }
 
-
+  /*** Like example on how to manage sessions and minimize the load on a your 
+  authentication service. Use this fonction if you dont want to load test auth. ***/
   def getSession() = {
-    val response: HttpResponse[String] = Http("https://raw.githubusercontent.com/JulienBouchardIT/Gatling-on-GithubActions/master/src/test/scala/responseExample.json").param("q","monkeys").asString
-    response.body
+    val response: HttpResponse[Map[String,String]] = Http(authURL).execute
+    (parser = {inputStream => Json.parse[Map[String,String]](inputStream)})
+    response.session.token
   }
 
   /*** HTTP Calls ***/
