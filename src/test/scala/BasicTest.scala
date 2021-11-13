@@ -52,7 +52,7 @@ class BasicTest extends Simulation {
 
   def getSession() = {
     if(aToken == ""){
-      updateSession()
+      aToken = updateSession()
     }
     aToken
   }
