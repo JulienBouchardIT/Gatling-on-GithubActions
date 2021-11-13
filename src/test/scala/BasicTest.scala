@@ -41,27 +41,22 @@ class BasicTest extends Simulation {
 
   /*** Like example on how to manage sessions and minimize the load on a your 
   authentication service. Use this fonction if you dont want to load test auth. ***/
+
+  def updateSession() = {
+    val jsonString = Http(authURL).asString.body
+    val jsonMap = JSON.parseFull(jsonString).getOrElse(0).asInstanceOf[Map[String,String]]
+    val innerMap = jsonMap("session").asInstanceOf[Map[String,String]]
+    aToken = innerMap("token")
+  }
+
+
   def getSession() = {
-    
     if(aToken == ""){
-      aToken = getSession()
+      updateSession()
     }
     aToken
   }
 
-  def getSession() = {
-    val jsonString = Http(authURL).asString.body
-    val jsonMap = JSON.parseFull(jsonString).getOrElse(0).asInstanceOf[Map[String,String]]
-    val innerMap = jsonMap("session").asInstanceOf[Map[String,String]]
-    innerMap("token")
-  }
-
-  val t = new java.util.Timer()
-  val task = new java.util.TimerTask {
-    def run() = {aToken = getSession()}
-  }
-  t.schedule(task, 300000L, 300000L)
-  task.cancel()
 
 
   /*** HTTP Calls ***/
