@@ -8,6 +8,8 @@ import java.time.format.DateTimeFormatter
 import scala.concurrent.duration._
 import scala.util.Random
 
+import scalaj.http._
+
 class BasicTest extends Simulation {
 
   val httpConf = http
@@ -25,7 +27,13 @@ class BasicTest extends Simulation {
     println(s"Running test with ${userCount} users")
     println(s"Ramping users over ${rampDuration} seconds")
     println(s"Total Test duration: ${testDuration} seconds")
-    println(aHttpCall())
+    println(getSession().body)
+  }
+
+
+  def getSession() = {
+    val response: HttpResponse[String] = Http("https://raw.githubusercontent.com/JulienBouchardIT/Gatling-on-GithubActions/master/src/test/scala/responseExample.json").param("q","monkeys").asString
+    return response
   }
 
   /*** HTTP Calls ***/

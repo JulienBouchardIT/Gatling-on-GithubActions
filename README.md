@@ -5,7 +5,7 @@ Gatling with Github Actions
 
 I cant figure out how to do that part for now
 
-### CT (Inlclude CI for now)) [![(CT) Launch a simulation](https://github.com/JulienBouchardIT/Gatling-on-GithubActions/actions/workflows/CT-runSimulation.yml/badge.svg)](https://github.com/JulienBouchardIT/Gatling-on-GithubActions/actions/workflows/CT-runSimulation.yml)
+### CT (Include CI for now)) [![(CT) Launch a simulation](https://github.com/JulienBouchardIT/Gatling-on-GithubActions/actions/workflows/CT-runSimulation.yml/badge.svg)](https://github.com/JulienBouchardIT/Gatling-on-GithubActions/actions/workflows/CT-runSimulation.yml)
 
 
 
