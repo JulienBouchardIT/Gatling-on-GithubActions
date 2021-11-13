@@ -36,7 +36,7 @@ class BasicTest extends Simulation {
   /*** Like example on how to manage sessions and minimize the load on a your 
   authentication service. Use this fonction if you dont want to load test auth. ***/
   def getSession() = {
-    (Http(authURL).asString.body).jsonPath("$.session.token")
+    Http(authURL).asString.body
   }
 
   /*** HTTP Calls ***/
