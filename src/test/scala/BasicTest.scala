@@ -26,8 +26,8 @@ class BasicTest extends Simulation {
   def testDuration: Int = 60
 
   var aToken: String = ""
-  var callsCount: Int = 0
-  def numberOfCallPerSession: Int = 50
+  var sessionTimeout: Long = 300000 // Timeout of session in ms
+  var lastSessionTime: Long = 0
 
   def authURL: String = "https://raw.githubusercontent.com/JulienBouchardIT/Gatling-on-GithubActions/master/src/test/scala/responseExample.json"
 
@@ -36,7 +36,6 @@ class BasicTest extends Simulation {
     println(s"Running test with ${userCount} users")
     println(s"Ramping users over ${rampDuration} seconds")
     println(s"Total Test duration: ${testDuration} seconds")
-    println("Current time in ms: "+System.currentTimeMillis())
   }
 
   /*** Like example on how to manage sessions and minimize the load on a your 
@@ -51,10 +50,10 @@ class BasicTest extends Simulation {
 
 
   def getSession() = {
-    if(aToken == "" || callsCount>numberOfCallPerSession){
+    if(aToken == "" || lastSessionTime+sessionTimeout>System.currentTimeMillis()){
       aToken = updateSession()
+      lastSessionTime = System.currentTimeMillis()
     }
-    callsCount=callsCount+1
     aToken
   }
 
