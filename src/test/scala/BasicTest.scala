@@ -36,9 +36,7 @@ class BasicTest extends Simulation {
     println(s"Running test with ${userCount} users")
     println(s"Ramping users over ${rampDuration} seconds")
     println(s"Total Test duration: ${testDuration} seconds")
-    println(getSession())
-
-
+    println("Current time in ms: "+System.currentTimeMillis().str)
   }
 
   /*** Like example on how to manage sessions and minimize the load on a your 
