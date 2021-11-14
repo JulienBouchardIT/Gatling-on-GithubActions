@@ -46,7 +46,7 @@ class BasicTest extends Simulation {
     val jsonString = Http(authURL).asString.body
     val jsonMap = JSON.parseFull(jsonString).getOrElse(0).asInstanceOf[Map[String,String]]
     val innerMap = jsonMap("session").asInstanceOf[Map[String,String]]
-    aToken = innerMap("token")
+    innerMap("token")
   }
 
 
