@@ -25,7 +25,7 @@ class BasicTest extends Simulation {
   def rampDuration: Int = 10
   def testDuration: Int = 60
 
-  def aToken: String = ""
+  var aToken: String = ""
 
   def authURL: String = "https://raw.githubusercontent.com/JulienBouchardIT/Gatling-on-GithubActions/master/src/test/scala/responseExample.json"
 
