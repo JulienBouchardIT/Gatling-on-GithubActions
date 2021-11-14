@@ -1,7 +1,7 @@
 Gatling with Github Actions
 =========================
 
-### CT (Include CI for now)) [![(CT) Launch a simulation](https://github.com/JulienBouchardIT/Gatling-on-GithubActions/actions/workflows/CT-runSimulation.yml/badge.svg)](https://github.com/JulienBouchardIT/Gatling-on-GithubActions/actions/workflows/CT-runSimulation.yml)
+[![CT - Launch a simulation](https://github.com/JulienBouchardIT/Gatling-on-GithubActions/actions/workflows/CT-runSimulation.yml/badge.svg)](https://github.com/JulienBouchardIT/Gatling-on-GithubActions/actions/workflows/CT-runSimulation.yml)
 
 
 
