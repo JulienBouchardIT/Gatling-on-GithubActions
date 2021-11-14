@@ -26,6 +26,8 @@ class BasicTest extends Simulation {
   def testDuration: Int = 60
 
   var aToken: String = ""
+  var callsCount: Int = 0
+  def numberOfCallPerSession: Int = 50
 
   def authURL: String = "https://raw.githubusercontent.com/JulienBouchardIT/Gatling-on-GithubActions/master/src/test/scala/responseExample.json"
 
@@ -51,9 +53,10 @@ class BasicTest extends Simulation {
 
 
   def getSession() = {
-    if(aToken == ""){
+    if(aToken == "" || callsCount>numberOfCallPerSession){
       aToken = updateSession()
     }
+    callsCount=callsCount+1
     aToken
   }
 
