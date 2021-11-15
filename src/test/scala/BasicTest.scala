@@ -21,9 +21,9 @@ class BasicTest extends Simulation {
 
   /*** Variables ***/
   // runtime variables
-  def userCount: Int = System.getenv("userCount")
-  def rampDuration: Int = System.getenv("rampDuration")
-  def testDuration: Int = System.getenv("testDuration")
+  def userCount: Int = Integer.getInteger("userCount", 1)
+  def rampDuration: Int = Integer.getInteger("rampDuration", 10)
+  def testDuration: Int = Integer.getInteger("testDuration", 60)
 
   var aToken: String = ""
   var sessionTimeout: Long = 300000 // Timeout of session in ms
