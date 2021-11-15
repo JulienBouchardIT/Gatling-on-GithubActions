@@ -66,7 +66,7 @@ class BasicTest extends Simulation {
     exec(
       http("Get element from json")
       .get("")
-      .check(jsonPath("$.session.token").is("123"))
+      .check(jsonPath("$.session.token").is("1234567890"))
       .check(bodyString.saveAs("responseBody"))
       ).exec { session => println(session("responseBody").as[String]); session}
   }
